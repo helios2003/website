@@ -102,6 +102,7 @@ async function getDiscussions(query, pageSize, endCursor = null) {
       after: endCursor,
       headers: {
         authorization: `token ${process.env.GITHUB_TOKEN}`,
+        'Retry-After': '60'
       },
     });
 
@@ -134,6 +135,7 @@ async function getDiscussionByID(isPR, id) {
       id,
       headers: {
         authorization: `token ${process.env.GITHUB_TOKEN}`,
+        'Retry-After': '60'
       },
 
     }
